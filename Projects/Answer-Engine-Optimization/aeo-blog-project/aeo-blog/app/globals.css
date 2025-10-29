@@ -1,14 +1,37 @@
-/* 2️⃣ Import Google Fonts BEFORE any CSS rules */
+/* 1️⃣ Import Google Fonts BEFORE any CSS rules */
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans:wght@700&family=Clash+Display:wght@600;700&family=Satoshi:wght@600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap");
 
-/* 1️⃣ Import Tailwind first */
+/* 2️⃣ Import Tailwind first */
 @import "tailwindcss";
 
+/* 3️⃣ Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* hide horizontal scroll globally */
 }
 
-/* Fonts */
+/* 4️⃣ Consistent box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 5️⃣ Global container */
+body {
+  @apply bg-slate-100/50 text-black text-sm antialiased;
+  margin: 0;
+  width: 100%;
+}
+
+/* Optional: wrap main containers to prevent accidental overflow */
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 6️⃣ Fonts */
 .font-satoshi {
   font-family: "Satoshi", "Inter", sans-serif;
 }
@@ -17,9 +40,8 @@ html {
   font-family: "DM Sans", "Inter", sans-serif;
 }
 
-/* 3️⃣ Your custom CSS variables */
+/* 7️⃣ Custom CSS variables */
 @theme {
-  /* 🎨 Fonts */
   --font-heading-primary: "Outfit", "Space Grotesk", "Epilogue", sans-serif;
   --font-heading-alt: "DM Sans", "Inter", sans-serif;
   --font-body-primary: "Satoshi", "Inter", sans-serif;
@@ -27,7 +49,7 @@ html {
   --font-Outfit: "Outfit", sans-serif;
   --font-Ovo: "Ovo", serif;
 
-  /* 🌈 Colors */
+  /* Colors */
   --color-primary: #3b82f6;
   --color-secondary: #60a5fa;
   --color-accent: #f59e0b;
@@ -37,10 +59,10 @@ html {
   --color-darkTheme: #11001f;
   --color-whiteText: #737373;
 
-  /* 💨 Grid */
+  /* Grid */
   --grid-cols-auto: repeat(auto-fit, minmax(200px, 1fr));
 
-  /* 🌀 Animation */
+  /* Animations */
   @keyframes spin-slow {
     0% {
       transform: rotate(0deg);
@@ -51,17 +73,12 @@ html {
   }
   --animate-spin_slow: spin-slow 6s linear infinite;
 
-  /* 🕶️ Shadows */
+  /* Shadows */
   --shadow-black: 4px 4px 0 #000;
   --shadow-white: 4px 4px 0 #fff;
 }
 
-/* 🌍 Global Styles */
-body {
-  @apply bg-slate-100/50 text-black text-sm antialiased;
-}
-
-/* Headings now use DM Sans */
+/* 8️⃣ Headings */
 h1,
 h2,
 h3,
@@ -69,34 +86,31 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading-primary);
+  word-wrap: break-word; /* allow wrapping */
 }
 
-/* Headings weights and sizes */
 h1 {
   font-weight: 600;
 }
+
 h2 {
   font-weight: 700;
 }
+
 h3 {
   font-weight: 600;
 }
 
-/* Body text uses Satoshi */
+/* 9️⃣ Body text */
 p,
 ul,
 li {
   font-family: var(--font-body-primary);
+  word-wrap: break-word; /* wrap long text safely */
 }
 
-p {
-  font-size: 16px;
-}
-
-ul {
-  font-size: 16px;
-}
-
+p,
+ul,
 li {
   font-size: 16px;
 }
@@ -117,4 +131,20 @@ button {
   @apply cursor-pointer;
   font-family: var(--font-heading-primary);
   font-weight: 600;
+}
+
+/* 10️⃣ Images, videos, tables, code blocks */
+img,
+video,
+table,
+pre {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 11️⃣ Breadcrumbs and small flex items */
+.breadcrumb-wrapper {
+  flex-wrap: wrap; /* allow items to wrap instead of overflowing */
+  overflow-x: hidden;
+  word-break: break-word; /* break long slugs */
 }

@@ -130,7 +130,7 @@ const HeroSection: React.FC = () => {
 
           <div className="w-full md:col-span-2 bg-[#1a2332] border border-[#2a3442] rounded-2xl p-6 md:p-8 shadow-lg shadow-[#00000040]">
             <iframe
-              data-tally-src="https://tally.so/embed/3qxzj5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              data-tally-src="https://tally.so/embed/nGNbOj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
               loading="lazy"
               width="100%"
               height="621"

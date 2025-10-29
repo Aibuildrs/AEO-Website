@@ -17,21 +17,21 @@ interface BreadcrumbsProps {
 export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
   return (
     <nav aria-label="Breadcrumb" className="mb-6">
-      <div className="flex flex-wrap items-center space-x-2 text-sm sm:text-base text-slate-600 overflow-x-auto whitespace-nowrap">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base text-slate-600">
         {/* === Breadcrumbs === */}
         <ol
-          className="flex items-center space-x-2 flex-shrink-0"
+          className="flex flex-wrap items-center gap-x-2 gap-y-1"
           itemScope
           itemType="https://schema.org/BreadcrumbList"
         >
           {/* Home Icon */}
-          <li
+          {/* <li
             itemProp="itemListElement"
             itemScope
             itemType="https://schema.org/ListItem"
             className="flex items-center flex-shrink-0"
           >
-            <Link href="/blog" itemProp="item" aria-label="Home">
+            <Link href="/" itemProp="item" aria-label="Home">
               <svg
                 width="24"
                 height="24"
@@ -47,7 +47,7 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
               </svg>
             </Link>
             <meta itemProp="position" content="1" />
-          </li>
+          </li> */}
 
           {items.map((item, index) => (
             <li
@@ -55,27 +55,27 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
               itemProp="itemListElement"
               itemScope
               itemType="https://schema.org/ListItem"
-              className="flex items-center flex-shrink-0
-                       hidden sm:flex"
+              className="flex flex-wrap items-center gap-x-1 gap-y-1 break-words"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="mx-1 text-slate-400 flex-shrink-0"
-              >
-                <path
-                  d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z"
-                  fill="currentColor"
-                />
-              </svg>
+              {/* Separator */}
+              {/* {index !== 0 && (
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-slate-400 flex-shrink-0"
+                >
+                  <path d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z" fill="currentColor" />
+                </svg>
+              )} */}
 
+              {/* Breadcrumb text */}
               {index === items.length - 1 ? (
                 <span
                   itemProp="name"
-                  className="font-medium text-blue-700 max-w-[120px] sm:max-w-none"
+                  className="font-medium text-blue-700 break-words max-w-full"
                 >
                   {item.name}
                 </span>
@@ -83,7 +83,7 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
                 <Link
                   href={item.url}
                   itemProp="item"
-                  className="text-blue-700 transition-colors"
+                  className="text-blue-700 transition-colors break-words max-w-full"
                 >
                   <span itemProp="name">{item.name}</span>
                 </Link>
@@ -95,43 +95,15 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
 
         {/* === Metadata === */}
         {article && (article.readingTime || article.wordCount) && (
-          <div className="flex items-center space-x-2 ml-4 flex-shrink-0 text-xs sm:text-sm text-slate-400 font-medium">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 ml-0 sm:ml-4 text-sm sm:text-sm text-slate-400 font-medium">
             {article.readingTime && (
-              <div className="flex items-center space-x-1">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z"
-                    fill="#94A3B8"
-                  />
-                </svg>
-                <span className="text-blue-700">
-                  {article.readingTime} min read
-                </span>
+              <div className="flex items-center gap-1">
+                <span className="text-blue-700">{article.readingTime} min read</span>
               </div>
             )}
             {article.wordCount && (
-              <div className="flex items-center space-x-1">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z"
-                    fill="#94A3B8"
-                  />
-                </svg>
-                <span className="text-blue-700">
-                  {article.wordCount.toLocaleString()} words
-                </span>
+              <div className="flex items-center gap-1">
+                <span className="text-blue-700">{article.wordCount.toLocaleString()} words</span>
               </div>
             )}
           </div>

@@ -250,10 +250,10 @@ export default async function ArticlePage({
               >
                 {article.title}
               </h1>
-
-              <div className="flex flex-nowrap items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-slate-400 font-medium mt-5 mb-5 overflow-x-auto whitespace-nowrap">
+              <div className="flex flex-wrap items-center gap-x-1 gap-y-2 text-xs sm:text-sm text-slate-400 font-medium mt-5 mb-5">
                 <Breadcrumbs
                   items={[
+                    { name: "Go Back", url: "/blog" },
                     { name: article.title, url: `/blog/${article.slug}` },
                   ]}
                   article={{
