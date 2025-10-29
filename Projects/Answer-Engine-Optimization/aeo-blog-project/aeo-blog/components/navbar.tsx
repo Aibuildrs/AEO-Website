@@ -97,7 +97,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 120, damping: 14 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center backdrop-blur-2xl gap-8 text-slate-200 text-lg"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center backdrop-blur-2xl gap-8 text-slate-200 text-lg bg-slate-900/50"
           >
             {navlinks.map((link, i) => (
               <motion.div

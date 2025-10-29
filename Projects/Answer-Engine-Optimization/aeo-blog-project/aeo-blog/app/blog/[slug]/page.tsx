@@ -223,7 +223,7 @@ export default async function ArticlePage({
 
       {/* Article Content */}
       <article
-        className="min-h-screen bg-white"
+        className="min-h-screen bg-slate-100/50"
         itemScope
         itemType="https://schema.org/Article"
       >
