@@ -1,0 +1,120 @@
+/* 2️⃣ Import Google Fonts BEFORE any CSS rules */
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans:wght@700&family=Clash+Display:wght@600;700&family=Satoshi:wght@600;700&family=Inter:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap");
+
+/* 1️⃣ Import Tailwind first */
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fonts */
+.font-satoshi {
+  font-family: "Satoshi", "Inter", sans-serif;
+}
+
+.font-dm-sans {
+  font-family: "DM Sans", "Inter", sans-serif;
+}
+
+/* 3️⃣ Your custom CSS variables */
+@theme {
+  /* 🎨 Fonts */
+  --font-heading-primary: "Outfit", "Space Grotesk", "Epilogue", sans-serif;
+  --font-heading-alt: "DM Sans", "Inter", sans-serif;
+  --font-body-primary: "Satoshi", "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-Outfit: "Outfit", sans-serif;
+  --font-Ovo: "Ovo", serif;
+
+  /* 🌈 Colors */
+  --color-primary: #3b82f6;
+  --color-secondary: #60a5fa;
+  --color-accent: #f59e0b;
+  --color-success: #10b981;
+  --color-lightHover: #fcf4ff;
+  --color-darkHover: #2a004a;
+  --color-darkTheme: #11001f;
+  --color-whiteText: #737373;
+
+  /* 💨 Grid */
+  --grid-cols-auto: repeat(auto-fit, minmax(200px, 1fr));
+
+  /* 🌀 Animation */
+  @keyframes spin-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  --animate-spin_slow: spin-slow 6s linear infinite;
+
+  /* 🕶️ Shadows */
+  --shadow-black: 4px 4px 0 #000;
+  --shadow-white: 4px 4px 0 #fff;
+}
+
+/* 🌍 Global Styles */
+body {
+  @apply bg-slate-100/50 text-black text-sm antialiased;
+}
+
+/* Headings now use DM Sans */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading-primary);
+}
+
+/* Headings weights and sizes */
+h1 {
+  font-weight: 600;
+}
+h2 {
+  font-weight: 700;
+}
+h3 {
+  font-weight: 600;
+}
+
+/* Body text uses Satoshi */
+p,
+ul,
+li {
+  font-family: var(--font-body-primary);
+}
+
+p {
+  font-size: 16px;
+}
+
+ul {
+  font-size: 16px;
+}
+
+li {
+  font-size: 16px;
+}
+
+a {
+  font-weight: 500;
+  &:hover {
+    color: #9393ff;
+  }
+}
+
+strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+button {
+  @apply cursor-pointer;
+  font-family: var(--font-heading-primary);
+  font-weight: 600;
+}

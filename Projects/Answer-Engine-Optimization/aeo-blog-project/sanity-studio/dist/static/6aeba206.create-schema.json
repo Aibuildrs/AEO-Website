@@ -1,0 +1,430 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "SEO-optimized title (60 characters max)",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "URL-friendly version of title",
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "description": "Primary keyword for SEO",
+        "name": "keyword",
+        "type": "string",
+        "title": "Target Keyword"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short summary (200 characters max)",
+        "name": "excerpt",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^mailto$/",
+                                    "/^tel$/"
+                                  ],
+                                  "allowRelative": false,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "name": "href",
+                      "type": "url",
+                      "title": "URL"
+                    },
+                    {
+                      "initialValue": false,
+                      "name": "blank",
+                      "type": "boolean",
+                      "title": "Open in new tab"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object",
+                  "title": "External Link"
+                },
+                {
+                  "fields": [
+                    {
+                      "to": [
+                        {
+                          "type": "article"
+                        }
+                      ],
+                      "name": "reference",
+                      "type": "reference"
+                    }
+                  ],
+                  "name": "internalLink",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Emphasis"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bullet"
+              },
+              {
+                "value": "number",
+                "title": "Numbered"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h2",
+                "title": "H2"
+              },
+              {
+                "value": "h3",
+                "title": "H3"
+              },
+              {
+                "value": "h4",
+                "title": "H4"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "content",
+        "type": "array"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "SEO meta description (160 characters max)",
+        "name": "metaDescription",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Describe the image for accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          },
+          {
+            "description": "Optional caption displayed below image",
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "name": "featuredImage",
+        "type": "image"
+      },
+      {
+        "rows": 10,
+        "description": "Auto-generated schema.org markup from N8N",
+        "name": "schemaMarkup",
+        "type": "text",
+        "title": "Schema Markup (JSON-LD)"
+      },
+      {
+        "rows": 10,
+        "description": "Optional FAQ schema markup in JSON format",
+        "name": "faqSchema",
+        "type": "text",
+        "title": "FAQ Schema (JSON-LD)"
+      },
+      {
+        "description": "List of related entities or subtopics",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "entities",
+        "type": "array"
+      },
+      {
+        "description": "Automatically calculated",
+        "readOnly": true,
+        "name": "wordCount",
+        "type": "number"
+      },
+      {
+        "description": "Estimated reading time",
+        "readOnly": true,
+        "name": "readingTime",
+        "type": "number",
+        "title": "Reading Time (minutes)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "publishedAt",
+        "type": "datetime"
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime"
+      },
+      {
+        "description": "Links back to Airtable keyword record",
+        "hidden": true,
+        "name": "airtableRecordId",
+        "type": "string",
+        "title": "Airtable Record ID"
+      },
+      {
+        "description": "AI quality score from generation",
+        "hidden": true,
+        "name": "qualityScore",
+        "type": "number"
+      },
+      {
+        "description": "Main topic/entity discussed",
+        "name": "primaryEntity",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Service",
+              "value": "Service"
+            },
+            {
+              "title": "Product",
+              "value": "Product"
+            },
+            {
+              "title": "Concept",
+              "value": "Concept"
+            },
+            {
+              "title": "Organization",
+              "value": "Organization"
+            },
+            {
+              "title": "Person",
+              "value": "Person"
+            },
+            {
+              "title": "Location",
+              "value": "Location"
+            }
+          ]
+        },
+        "name": "entityType",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "How-To Guide",
+              "value": "how-to"
+            },
+            {
+              "title": "Tutorial",
+              "value": "tutorial"
+            },
+            {
+              "title": "Best Practices",
+              "value": "best-practices"
+            },
+            {
+              "title": "Industry Insights",
+              "value": "insights"
+            },
+            {
+              "title": "Case Study",
+              "value": "case-study"
+            },
+            {
+              "title": "News & Updates",
+              "value": "news"
+            }
+          ]
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "categories",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "✅ Published",
+              "value": "published"
+            },
+            {
+              "title": "📝 Draft",
+              "value": "draft"
+            },
+            {
+              "title": "🔒 Archived",
+              "value": "archived"
+            }
+          ]
+        },
+        "initialValue": "published",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "published",
+                  "draft",
+                  "archived"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "status",
+        "type": "string"
+      }
+    ],
+    "name": "article",
+    "type": "document"
+  }
+]
