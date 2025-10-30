@@ -8,7 +8,6 @@ export default function Page() {
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm mt-18">
         <div className="max-w-5xl mx-auto px-6 py-4">
-          <h1 className="text-2xl font-bold text-slate-900">The AEO Engine</h1>
           <p className="text-sm text-slate-600 mt-1">
             Privacy Policy & Terms of Service
           </p>
