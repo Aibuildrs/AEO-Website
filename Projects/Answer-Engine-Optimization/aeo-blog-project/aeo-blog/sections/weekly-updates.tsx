@@ -56,7 +56,6 @@ const HeroSection: React.FC = () => {
         {/* Two Column Layout */}
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <motion.div
-            className="bg-gradient-to-br from-emerald-950/30 to-slate-900/50 rounded-2xl p-8 border border-emerald-900/30"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -105,7 +104,6 @@ const HeroSection: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="bg-gradient-to-br from-red-950/30 to-slate-900/50 rounded-2xl p-8 border border-red-900/30"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
