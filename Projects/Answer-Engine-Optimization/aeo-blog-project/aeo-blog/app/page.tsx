@@ -10,6 +10,7 @@ import Blog from "../sections/blog";
 import WeeklyUpdates from "../sections/weekly-updates";
 import TwoChoices from "../sections/two-choices";
 
+
 export default async function HomePage() {
   return (
     <>

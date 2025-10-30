@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Linkedin, Send, Instagram } from "lucide-react";
+import { Facebook, Linkedin, Send, Instagram, Link } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
@@ -7,7 +7,6 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Logo and Tagline */}
         <div className="text-center mb-8">
-
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-[-0.09em]">
             <span className="text-[#2563eb]">The</span>
             <span className="text-[#10b981]">AEO</span>
@@ -56,6 +55,12 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-500 text-sm">
+          {/* Privacy Policy */}
+          <div className="text-center mt-4 mb-4">
+            <a href="/privacy-policy" className="text-gray-400 text-sm">
+              Our Privacy Policy
+            </a>
+          </div>
           © 2025 The AEO Engine. Fueling AI minds, one insight at a time. All
           rights reserved.
         </div>
