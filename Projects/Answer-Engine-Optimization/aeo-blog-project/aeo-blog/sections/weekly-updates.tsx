@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Check, X, MoveRightIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
@@ -54,79 +55,95 @@ const HeroSection: React.FC = () => {
 
         {/* Two Column Layout */}
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {/* Who Should Join */}
-          <div className="bg-gradient-to-br from-emerald-950/30 to-slate-900/50 rounded-2xl p-8 border border-emerald-900/30">
-            <h2 className="text-2xl font-semibold text-emerald-400 mb-6">
-              Who Should Join:
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+          <motion.div
+            className="bg-gradient-to-br from-emerald-950/30 to-slate-900/50 rounded-2xl p-8 border border-emerald-900/30"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            {/* Who Should Join */}
+            <div className="bg-gradient-to-br from-emerald-950/30 to-slate-900/50 rounded-2xl p-8 border border-emerald-900/30">
+              <h2 className="text-2xl font-semibold text-emerald-400 mb-6">
+                Who Should Join:
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    B2B SaaS companies ready to lead their category
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  B2B SaaS companies ready to lead their category
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    Service providers competing on expertise
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  Service providers competing on expertise
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    Brands with complex products that need explanation
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  Brands with complex products that need explanation
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    Companies ready to publish consistently
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  Companies ready to publish consistently
-                </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Who Shouldn't */}
-          <div className="bg-gradient-to-br from-red-950/30 to-slate-900/50 rounded-2xl p-8 border border-red-900/30">
-            <h2 className="text-2xl font-semibold text-red-400 mb-6">
-              Who Shouldn't:
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
-                  <X className="w-4 h-4 text-red-400" />
+          <motion.div
+            className="bg-gradient-to-br from-red-950/30 to-slate-900/50 rounded-2xl p-8 border border-red-900/30"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
+            {/* Who Shouldn't */}
+            <div className="bg-gradient-to-br from-red-950/30 to-slate-900/50 rounded-2xl p-8 border border-red-900/30">
+              <h2 className="text-2xl font-semibold text-red-400 mb-6">
+                Who Shouldn't:
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
+                    <X className="w-4 h-4 text-red-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    Need results in 30 days (this is a 90-day play)
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  Need results in 30 days (this is a 90-day play)
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
-                  <X className="w-4 h-4 text-red-400" />
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
+                    <X className="w-4 h-4 text-red-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    E-commerce commodity products
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  E-commerce commodity products
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
-                  <X className="w-4 h-4 text-red-400" />
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
+                    <X className="w-4 h-4 text-red-400" />
+                  </div>
+                  <p className="text-slate-200 leading-relaxed">
+                    Not ready to commit to content
+                  </p>
                 </div>
-                <p className="text-slate-200 leading-relaxed">
-                  Not ready to commit to content
-                </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="w-full md:col-span-2 bg-[#1a2332] border border-[#2a3442] rounded-2xl p-6 md:p-8 shadow-lg shadow-[#00000040]">
             <iframe
