@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
       <main className="container mx-auto px-6 py-16 max-w-6xl">
         <div className="text-center mb-10">
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-5 py-2.5 border border-slate-500 rounded-full mb-6 mt-6">
+          <div className="inline-flex items-center space-x-2 px-5 py-2.5 border border-slate-500 rounded-full mb-6 mt-[-8] whitespace-nowrap overflow-x-auto">
             <span className="text-cyan-400 text-sm">✦</span>
             <span className="flex flex-row justify gap-1 text-sm text-slate-500 font-semibold">
               The SEO <MoveRightIcon className="w-3" /> AEO Shift is Happening
@@ -45,7 +45,7 @@ const HeroSection: React.FC = () => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-2xl md:text-5xl font-bold mb-4 leading-tight">
             Get Weekly Insider Updates + First
             <br />
             Access When Beta Opens

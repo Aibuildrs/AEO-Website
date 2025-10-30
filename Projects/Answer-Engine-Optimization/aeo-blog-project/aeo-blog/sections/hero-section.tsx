@@ -2,6 +2,13 @@
 
 import React, { CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const stats = [
+  { value: "84%", label: "Google results with AI" },
+  { value: "3.7B", label: "Monthly ChatGPT visits" },
+  { value: "300%", label: "Perplexity YoY growth" },
+];
 
 const Hero: React.FC = () => {
   return (
@@ -52,7 +59,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl sm:text-6xl md:text-2xl lg:text-7xl mb-8 leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-6xl md:text-2xl lg:text-7xl mb-8 leading-tight tracking-tight">
             Get <span className="font-bold">10X</span> More Clicks With
             <br />
             ChatGPT. Dominate AI Search.
@@ -66,7 +73,15 @@ const Hero: React.FC = () => {
           </p>
 
           {/* CTA Button */}
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-green-500 rounded-full text-white font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 mb-8 mt-8 inline-flex items-center space-x-2">
+          <button
+            className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-green-500 rounded-full text-white font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 mb-8 mt-8 inline-flex items-center space-x-2"
+            onClick={() => {
+              const section = document.getElementById("weekly-updates");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
             <span className="font-satoshi">Get First Access to Beta</span>
             <ArrowUpRight />
           </button>
@@ -78,46 +93,42 @@ const Hero: React.FC = () => {
           </p>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {/* Card 1 */}
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700 rounded-3xl p-4 text-left hover:border-slate-600/50 transition-all duration-300">
-                <div className="text-5xl md:text-3xl font-semibold mb-3">
-                  84%
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              show: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  staggerChildren: 0.2,
+                  duration: 0.5,
+                  ease: "easeOut",
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto"
+          >
+            {stats.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 250, damping: 15 }}
+                className="relative text-center bg-slate-900/60 border border-slate-100/50 rounded-3xl p-6 cursor-default backdrop-blur-sm shadow-lg hover:shadow-slate-900/50 transition-shadow"
+              >
+                <div className="text-3xl md:text-3xl font-semibold mb-3 text-slate-50">
+                  {item.value}
                 </div>
-                <div className="text-slate-400 text-base">
-                  Google results with AI
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700 rounded-3xl p-4 text-left hover:border-cyan-600/50 transition-all duration-300">
-                <div className="text-5xl md:text-3xl font-semibold mb-3">
-                  3.7B
-                </div>
-                <div className="text-slate-400 text-base">
-                  Monthly ChatGPT visits
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700 rounded-3xl p-4 text-left hover:border-emerald-600/50 transition-all duration-300">
-                <div className="text-5xl md:text-3xl font-semibold mb-3">
-                  300%
-                </div>
-                <div className="text-slate-400 text-base">
-                  Perplexity YoY growth
-                </div>
-              </div>
-            </div>
-          </div>
+                <div className="text-slate-400 text-base">{item.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Gradient glow effects */}

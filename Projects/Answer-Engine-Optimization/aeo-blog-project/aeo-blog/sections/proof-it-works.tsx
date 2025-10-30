@@ -41,10 +41,11 @@ const ProofItWorks: React.FC = () => {
 
               {/* Robot Image */}
               <div className="relative w-full h-full flex items-center justify-center overflow-visible">
-                {/* Using regular img since it’s an illustrative asset */}
-                <img
+                <Image
                   src="/assets/robot-img.webp"
                   alt="Robot illustration"
+                  width={500} 
+                  height={600} 
                   className="w-auto h-[120%] md:h-[110%] object-contain translate-x-[15%] md:translate-x-[10%] drop-shadow-2xl"
                 />
               </div>
@@ -57,7 +58,9 @@ const ProofItWorks: React.FC = () => {
             <div className="flex justify-center">
               <div className="inline-flex items-center space-x-2 px-5 py-2.5 backdrop-blur-sm border border-slate-500 rounded-full mb-2 mt-2">
                 <span className="text-emerald-400 text-sm">✦</span>
-                <span className="text-sm text-slate-600">Building in Public</span>
+                <span className="text-sm text-slate-600">
+                  Building in Public
+                </span>
               </div>
             </div>
 
@@ -70,7 +73,7 @@ const ProofItWorks: React.FC = () => {
                 Most agencies hide behind case studies you can't verify.
               </p>
 
-              <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 whitespace-nowrap">
                 We're doing the opposite.
               </h2>
 
@@ -80,7 +83,7 @@ const ProofItWorks: React.FC = () => {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-slate-900">
+              <h3 className="text-2xl font-bold text-slate-900 whitespace-nowrap">
                 Every Monday, You'll See:
               </h3>
 
@@ -113,7 +116,15 @@ const ProofItWorks: React.FC = () => {
 
               {/* CTA Button */}
               <div className="flex justify-center mt-12">
-                <button className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                <button
+                  className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                  onClick={() => {
+                    const section = document.getElementById("weekly-updates");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
                   Follow Our Journey
                   <ArrowUpRight className="w-5 h-5" />
                 </button>

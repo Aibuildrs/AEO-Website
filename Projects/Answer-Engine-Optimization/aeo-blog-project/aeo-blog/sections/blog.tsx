@@ -23,6 +23,11 @@ const BlogCard: React.FC<{ post: Article }> = ({ post }) => {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
+
+        {/* Category Badge */}
+        <span className="absolute top-3 right-3 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium border border-blue-200 whitespace-nowrap flex-shrink-0 shadow-md">
+          {post.categories?.[0] || "General"}
+        </span>
       </div>
 
       {/* Content */}
@@ -48,10 +53,6 @@ const BlogCard: React.FC<{ post: Article }> = ({ post }) => {
               <span>{post.readingTime} min read</span>
             </div>
           )}
-
-          <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium border border-blue-200 whitespace-nowrap flex-shrink-0">
-            {post.categories?.[0] || "General"}
-          </span>
         </div>
 
         {/* Title */}
@@ -109,12 +110,12 @@ const BlogCards: React.FC = () => {
       <main className="container mx-auto px-4 py-16 max-w-7xl">
         <div className="text-center mb-14">
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-5 py-2 border border-slate-200 rounded-full mb-5 mt-4">
+          <div className="inline-flex items-center space-x-2 px-5 py-2.5 border border-slate-200 rounded-full mb-4 mt-[-16]">
             <span className="text-cyan-400 text-sm">✦</span>
-            <span className="text-sm text-slate-600 font-semibold">Blog</span>
+            <span className="text-lg text-slate-600 font-semibold">Blog</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-slate-900">
+          <h1 className="text-2xl md:text-5xl font-bold mb-4 leading-tight text-slate-900">
             See Exactly How We're Building This (No
             <br className="hidden sm:block" />
             BS, Just Results)

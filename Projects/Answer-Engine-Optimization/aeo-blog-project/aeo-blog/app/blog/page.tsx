@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Clock, MoveRight} from "lucide-react";
+import { Calendar, Clock, MoveRight } from "lucide-react";
 import { getArticles } from "@/app/lib/sanity.client";
 import { getOptimizedImageUrl } from "@/app/lib/sanity.image";
 import { Article } from "@/app/types/article";
@@ -23,6 +23,11 @@ const BlogCard: React.FC<{ post: Article }> = ({ post }) => {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
+
+        {/* Category Badge */}
+        <span className="absolute top-3 right-3 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium border border-blue-200 whitespace-nowrap flex-shrink-0 shadow-md">
+          {post.categories?.[0] || "General"}
+        </span>
       </div>
 
       {/* Content */}
@@ -48,10 +53,6 @@ const BlogCard: React.FC<{ post: Article }> = ({ post }) => {
               <span>{post.readingTime} min read</span>
             </div>
           )}
-
-          <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium border border-blue-200 whitespace-nowrap flex-shrink-0">
-            {post.categories?.[0] || "General"}
-          </span>
         </div>
 
         {/* Title */}

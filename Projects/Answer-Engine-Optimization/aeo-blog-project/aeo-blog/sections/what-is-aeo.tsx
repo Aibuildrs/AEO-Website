@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { MessageCircle, FileText, Languages } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 interface CardData {
   icon: React.ReactNode;
@@ -47,16 +48,31 @@ const AEOComparisonSection: React.FC = () => {
     },
   ];
 
+  // Framer Motion variants
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
+
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-slate-900 to-gray-950 text-white">
       {/* What is AEO Button */}
       <div className="flex justify-center pt-4 pb-12">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="group flex items-center gap-2 px-6 py-3 border border-emerald-500/30 rounded-full hover:border-emerald-500/60 hover:bg-emerald-500/5 transition-all duration-300"
+          className="group flex items-center gap-2 px-4 py-3 border border-emerald-500/30 rounded-full hover:border-emerald-500/60 hover:bg-emerald-500/5 transition-all duration-300"
         >
           <span className="text-cyan-400 text-sm">✦</span>
-          <span className="text-gray-300 group-hover:text-white transition-colors">
+          <span className="text-gray-300 group-hover:text-white transition-colors whitespace-nowrap">
             What Is Answer Engine Optimization? (AEO)
           </span>
         </button>
@@ -84,7 +100,7 @@ const AEOComparisonSection: React.FC = () => {
 
       {/* Main Headline */}
       <div className="container mx-auto px-6 text-center mb-10">
-        <h1 className="text-5xl md:text-5xl font-bold mb-8 leading-tight">
+        <h1 className="text-2xl md:text-5xl font-bold mb-8 leading-tight">
           Get Cited in the Answer - Not Buried
           <br />
           in the Results
@@ -92,14 +108,20 @@ const AEOComparisonSection: React.FC = () => {
       </div>
 
       {/* The Difference Section */}
-      <div className="w-full mb-16 relative px-6">
+      <motion.div
+        className="w-full mb-16 relative px-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
         <h2 className="text-lg md:text-xl font-semibold text-center text-slate-500 mb-6">
           The Difference:
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center relative justify-center max-w-4xl mx-auto">
           {/* Traditional SEO Card */}
-          <div className="relative group h-28">
+          <motion.div variants={cardVariants} className="relative group h-28">
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
             <div className="relative bg-slate-900/80 border border-red-900/30 rounded-2xl p-4 backdrop-blur hover:border-red-900/50 transition-all duration-300 h-full flex flex-col justify-center">
               <h3 className="text-lg font-semibold text-red-400 mb-1">
@@ -109,20 +131,20 @@ const AEOComparisonSection: React.FC = () => {
                 Traditional SEO = Rank #1 on Google
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* AEO Card */}
-          <div className="relative group h-28">
+          <motion.div variants={cardVariants} className="relative group h-28">
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
             <div className="relative bg-slate-900/80 border border-emerald-900/30 rounded-2xl p-4 backdrop-blur hover:border-emerald-900/50 transition-all duration-300 h-full flex flex-col justify-center">
-              <h3 className="text-lg font-semibold text-emerald-400 mb-1">
+              <h3 className="text-lg font-semibold text-emerald-400 mb-1 whitespace-nowrap">
                 Answer Engine Optimization (AEO)
               </h3>
               <p className="text-gray-300 text-sm mb-0">
                 Get cited by ChatGPT, Gemini, Perplexity & Claude
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* VS Divider */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
@@ -131,11 +153,11 @@ const AEOComparisonSection: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* How It Works Section */}
       <div className="container mx-auto px-6 max-w-5xl pb-2">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-2">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-2">
           How It Works:
         </h2>
         <p className="text-xl text-gray-400 text-center max-w-3xl mx-auto leading-relaxed">
@@ -146,13 +168,22 @@ const AEOComparisonSection: React.FC = () => {
       </div>
 
       {/* Integrated Strategy Cards Section */}
-      <div className="min-h-screen py-16 px-2">
+      <motion.div
+        className="min-h-screen py-16 px-2"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cards.map((card, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-emerald-500/30 transition-all duration-300 overflow-hidden group"
+                variants={cardVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-8 transition-all duration-300 overflow-hidden group shadow-sm hover:shadow-emerald-500/10"
               >
                 {/* Large Number Background */}
                 <div className="absolute inset-0 flex items-center justify-center text-[250px] font-bold text-slate-700/20 leading-none select-none pointer-events-none mb-8">
@@ -173,7 +204,7 @@ const AEOComparisonSection: React.FC = () => {
                     {card.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -186,7 +217,7 @@ const AEOComparisonSection: React.FC = () => {
             <br /> before they even compare options.
           </h3>
         </div>
-      </div>
+      </motion.div>
 
       {/* Decorative Elements */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden">

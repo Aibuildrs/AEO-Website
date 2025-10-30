@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, Check, MoveRightIcon, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Define TypeScript interfaces
 interface TimelineItem {
@@ -71,15 +72,15 @@ const AEOShift: React.FC = () => {
       <main className="container mx-auto px-6 py-16 max-w-6xl">
         <div className="text-center mb-16">
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-5 py-2.5 border border-slate-200 rounded-full mb-6 mt-6">
+          <div className="inline-flex items-center space-x-2 border border-slate-200 rounded-full mb-6 mt-[-8] whitespace-nowrap overflow-x-auto">
             <span className="text-cyan-400 text-sm">✦</span>
-            <span className="flex flex-row justify gap-1 text-sm text-slate-600 font-semibold">
-              The SEO <MoveRightIcon className="w-3" /> AEO Shift is Happening
-              Now
+            <span className="flex items-center gap-1 text-sm text-slate-600 font-semibold">
+              The SEO <MoveRightIcon className="w-3 flex-shrink-0" /> AEO Shift
+              is Happening Now
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-5xl font-bold mb-8 leading-tight">
+          <h1 className="text-2xl md:text-5xl font-bold mb-8 leading-tight">
             You're Spending Thousands on
             <br />
             Content That AI Will Never See
@@ -103,22 +104,51 @@ const AEOShift: React.FC = () => {
             <span className="font-semibold">Here's why:</span> AI platforms
             don't rank content. They cite it. And 99% of content isn't optimized
             for AI extraction.{" "}
-            <span className="font-bold text-white">The brutal truth?</span> Your
-            SEO strategy is becoming obsolete faster than you think.
+            <span className="font-bold">The brutal truth?</span> Your SEO
+            strategy is becoming obsolete faster than you think.
           </div>
         </div>
 
         {/* Section 1: Old vs New SEO Cards */}
-        <div className="space-y-6">
+        <motion.div
+          className="space-y-6"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                staggerChildren: 0.25,
+                duration: 0.5,
+                ease: "easeOut",
+              },
+            },
+          }}
+        >
           {slides
             .filter((slide) => slide.old && slide.new)
             .map((slide, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 p-4 sm:p-6 bg-white rounded-2xl border border-gray-100"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                }}
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 p-4 sm:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
               >
                 {/* Old SEO Card */}
-                <div className="bg-red-50 border border-red-100 rounded-2xl p-4 sm:p-6">
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="bg-red-50 border border-red-100 rounded-2xl p-4 sm:p-6"
+                >
                   <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-red-700 text-center md:text-left">
                     What You're Doing (Old SEO)
                   </h3>
@@ -134,10 +164,16 @@ const AEOShift: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* New Reality Card */}
-                <div className="bg-green-50 border border-green-100 rounded-2xl p-4 sm:p-6 mt-4 md:mt-0">
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="bg-green-50 border border-green-100 rounded-2xl p-4 sm:p-6 mt-4 md:mt-0"
+                >
                   <h3 className="text-lg sm:text-xl font-bold text-green-700 mb-4 sm:mb-6 text-center md:text-left">
                     What's Killing You (New Reality)
                   </h3>
@@ -153,10 +189,10 @@ const AEOShift: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
-        </div>
+        </motion.div>
 
         {/* Section 2: Timeline Slides */}
         <div className="space-y-16 mt-16">
@@ -170,21 +206,52 @@ const AEOShift: React.FC = () => {
                 </h1>
 
                 {/* Timeline Cards */}
-                <div className="grid grid-cols-1 text-center md:grid-cols-4 gap-6 mb-12">
+                <motion.div
+                  className="grid grid-cols-1 text-center md:grid-cols-4 gap-6 mb-12"
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={{
+                    hidden: {},
+                    show: {
+                      transition: {
+                        staggerChildren: 0.2,
+                      },
+                    },
+                  }}
+                >
                   {slide.timeline?.map((item, index) => (
-                    <div
+                    <motion.div
                       key={index}
-                      className="bg-white rounded-2xl p-2 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
+                      variants={{
+                        hidden: { opacity: 0, y: 40 },
+                        show: {
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.6, ease: "easeOut" },
+                        },
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        y: -6,
+                        boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 250,
+                        damping: 18,
+                      }}
+                      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-lg transition-all"
                     >
-                      <h3 className="text-2xl font-bold text-gray-800 mb-6 mt-6">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-4">
                         {item.period}
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
                         {item.description}
                       </p>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
 
                 {/* Bottom Text */}
                 <div className="text-center max-w-4xl mx-auto">
@@ -200,7 +267,15 @@ const AEOShift: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="flex justify-center mt-12">
-                  <button className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                  <button
+                    className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 whitespace-nowrap"
+                    onClick={() => {
+                      const section = document.getElementById("weekly-updates");
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
                     Get Weekly AEO Insights
                     <ArrowUpRight className="w-5 h-5" />
                   </button>

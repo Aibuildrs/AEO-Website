@@ -1,6 +1,5 @@
 // page.tsx
 import React from "react";
-import Head from "next/head";
 
 import HeroSection from "../sections/hero-section";
 import AEOShift from "../sections/aeo-shift";
@@ -12,22 +11,8 @@ import WeeklyUpdates from "../sections/weekly-updates";
 import TwoChoices from "../sections/two-choices";
 
 export default async function HomePage() {
-  const organizationSchema = { /* your schema data */ };
-  const websiteSchema = { /* your schema data */ };
-
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-      </Head>
-
       {/* 👇 Each section gets a unique id */}
       <section id="home">
         <HeroSection />

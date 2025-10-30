@@ -245,7 +245,7 @@ export default async function ArticlePage({
               )}
 
               <h1
-                className="text-4xl md:text-5xl font-bold mb-6 leading-tight mt-20"
+                className="text-2xl md:text-2xl font-bold mb-6 leading-tight mt-20"
                 itemProp="headline"
               >
                 {article.title}
