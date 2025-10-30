@@ -163,7 +163,15 @@ const BetaProgram: React.FC = () => {
 
           {/* CTA Button */}
           <div className="flex justify-center mt-12">
-            <button className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+            <button
+              className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+              onClick={() => {
+                const section = document.getElementById("weekly-updates");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
               Get Free AEO Checklist
               <ArrowUpRight className="w-5 h-5" />
             </button>
