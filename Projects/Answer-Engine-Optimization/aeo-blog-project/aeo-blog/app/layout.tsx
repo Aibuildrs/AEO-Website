@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -47,61 +48,70 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://theaeoengine.com/#organization",
-    name: "The AEO Engine",
-    url: "https://theaeoengine.com",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://theaeoengine.com/aeo-logo.png",
-      width: 600,
-      height: 60,
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+1-XXX-XXX-XXXX",
-      contactType: "customer service",
-      areaServed: "US",
-      availableLanguage: "en",
-    },
-    sameAs: [
-      "https://www.facebook.com/yourcompany",
-      "https://twitter.com/yourcompany",
-      "https://www.linkedin.com/company/yourcompany",
-    ],
-  };
-
   return (
     <html lang="en">
       <head>
-        <script
+        {/* ✅ Google Tag Manager */}
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-      (function(w,d,s,l,i){
-        w[l] = w[l] || [];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window,document,'script','dataLayer','GTM-PCHRMCVJ');
-    `,
+        (function(w,d,s,l,i){
+          w[l]=w[l]||[];
+          w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+          var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),
+              dl=l!='dataLayer'?'&l='+l:'';
+          j.async=true;
+          j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+          f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PCHRMCVJ');
+      `,
           }}
         />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script
-          type="application/ld+json"
+        {/* ✅ TikTok Pixel */}
+        <Script
+          id="tiktok-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: `...your TikTok pixel code...`,
+          }}
+        />
+
+        {/* ✅ LinkedIn Insight Tag */}
+        <Script
+          id="linkedin-insight"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+        _linkedin_partner_id = "6736346";
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      `,
+          }}
+        />
+        <Script
+          id="linkedin-loader"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+        (function(l){
+          if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[];}
+          var s=document.getElementsByTagName("script")[0];
+          var b=document.createElement("script");
+          b.type="text/javascript";b.async=true;
+          b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+          s.parentNode.insertBefore(b,s);
+        })(window.lintrk);
+      `,
           }}
         />
       </head>
+
       <body className="overflow-x-hidden font-[var(--font-body-primary)] bg-slate-100/50 text-black">
+        {/* ✅ Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PCHRMCVJ"
@@ -111,16 +121,37 @@ export default function RootLayout({
           ></iframe>
         </noscript>
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZX31YYYDF0');
-    `,
-          }}
-        />
+        {/* ✅ LinkedIn (noscript) */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=6736346&fmt=gif"
+          />
+        </noscript>
+
+        {/* ✅ Facebook Pixel (noscript) */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://www.facebook.com/tr?id=1300636034484702&ev=PageView&noscript=1"
+          />
+        </noscript>
+
+        {/* ✅ Google Analytics */}
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZX31YYYDF0');
+  `}
+        </Script>
 
         <div className="overflow-x-hidden w-full max-w-full">
           <Navbar />
