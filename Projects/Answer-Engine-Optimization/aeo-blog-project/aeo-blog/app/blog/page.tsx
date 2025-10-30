@@ -14,7 +14,7 @@ const BlogCard: React.FC<{ post: Article }> = ({ post }) => {
     : "/assets/statistics.webp"; // fallback image
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-gray-100 w-full">
+    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-gray-100 w-full bg-slate-100/50">
       {/* Image */}
       <div className="relative w-full h-56 bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">
         <Image

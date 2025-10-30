@@ -227,7 +227,7 @@ export default async function ArticlePage({
         itemScope
         itemType="https://schema.org/Article"
       >
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-12 bg-slate-100/50">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <header className="mb-8">
@@ -250,7 +250,7 @@ export default async function ArticlePage({
               >
                 {article.title}
               </h1>
-              <div className="flex flex-wrap items-center gap-x-1 gap-y-2 text-xs sm:text-sm text-slate-400 font-medium mt-5 mb-5">
+              <div className="flex flex-wrap items-center gap-x-1 gap-y-2 text-xs sm:text-xs text-slate-400 font-medium mt-5 mb-5">
                 <Breadcrumbs
                   items={[
                     { name: "Blogs", url: "/blog" },                   
@@ -428,7 +428,7 @@ const portableTextComponents: PortableTextComponents = {
           href={value?.href}
           target={target}
           rel={target === "_blank" ? "noopener noreferrer" : undefined}
-          className="text-blue-700 hover:text-blue-800 underline font-medium"
+          className="text-blue-700 hover:text-blue-800 font-medium"
         >
           {children}
         </a>
@@ -437,7 +437,7 @@ const portableTextComponents: PortableTextComponents = {
     internalLink: ({ children, value }) => (
       <Link
         href={`/blog/${value?.reference?.slug?.current}`}
-        className="text-blue-700 hover:text-blue-800 underline font-medium"
+        className="text-blue-700 hover:text-blue-800 font-medium"
       >
         {children}
       </Link>

@@ -1,3 +1,4 @@
+import { Home } from "lucide-react";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -19,16 +20,13 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
     <nav aria-label="Breadcrumb" className="mb-6">
       <div className="flex flex-wrap items-center gap-1 text-xs sm:text-sm text-slate-400 font-medium">
         <ol className="flex flex-wrap items-center gap-1">
-          {/* Map all breadcrumb items */}
           {[
             { name: "Home", url: "/" }, // Always start with Home
             ...items,
           ].map((item, index) => (
             <li key={index} className="flex items-center flex-wrap">
               {/* Separator */}
-              {index !== 0 && (
-                <span className="mx-1 text-slate-400">&gt;</span>
-              )}
+              {index !== 0 && <span className="mx-1 text-slate-400">&gt;</span>}
 
               {/* Breadcrumb link or text */}
               {index === items.length ? (
@@ -38,9 +36,13 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
               ) : (
                 <Link
                   href={item.url}
-                  className="text-blue-700 transition-colors hover:underline break-words max-w-full"
+                  className="text-blue-700 transition-colors break-words max-w-full flex items-center gap-1"
                 >
-                  {item.name}
+                  {index === 0 ? (
+                    <Home className="w-4 h-4" /> // 🏠 Lucide Home icon
+                  ) : (
+                    item.name
+                  )}
                 </Link>
               )}
             </li>
@@ -51,10 +53,12 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, article }) => {
         {article && (article.readingTime || article.wordCount) && (
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 ml-0 sm:ml-4 text-sm sm:text-sm text-slate-400 font-medium">
             {article.readingTime && (
-              <span className="text-blue-700">{article.readingTime} min read</span>
+              <span className="text-green-700">
+                {article.readingTime} min read
+              </span>
             )}
             {article.wordCount && (
-              <span className="text-blue-700">
+              <span className="text-green-700">
                 {article.wordCount.toLocaleString()} words
               </span>
             )}

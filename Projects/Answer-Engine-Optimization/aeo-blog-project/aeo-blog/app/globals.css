@@ -53,17 +53,6 @@ html {
   /* 💨 Grid */
   --grid-cols-auto: repeat(auto-fit, minmax(200px, 1fr));
 
-  /* 🌀 Animation */
-  @keyframes spin-slow {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  --animate-spin_slow: spin-slow 6s linear infinite;
-
   /* 🕶️ Shadows */
   --shadow-black: 4px 4px 0 #000;
   --shadow-white: 4px 4px 0 #fff;
@@ -119,7 +108,7 @@ li {
 a {
   font-weight: 500;
   &:hover {
-    color: #9393ff;
+    color: #00d2f7;
   }
 }
 
@@ -134,7 +123,3 @@ button {
   font-weight: 600;
 }
 
-/* 
-* {
-  outline: 1px solid rgba(255, 0, 0, 0.2);
-} */
