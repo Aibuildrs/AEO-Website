@@ -81,9 +81,9 @@ const AEOShift: React.FC = () => {
           </div>
 
           <h1 className="text-2xl md:text-5xl font-bold mb-8 leading-tight">
-            You're Spending Thousands on
+            Dominate Search: Get found everywhere
             <br />
-            Content That AI Will Never See
+            your customer is looking
           </h1>
 
           <p className="text-xl text-slate-600 mb-4">

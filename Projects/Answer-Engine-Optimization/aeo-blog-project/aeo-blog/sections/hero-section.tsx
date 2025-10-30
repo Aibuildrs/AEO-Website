@@ -65,6 +65,40 @@ const Hero: React.FC = () => {
             ChatGPT. Dominate AI Search.
           </h1>
 
+          <div className="py-6 flex justify-center">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8">
+              <img
+                src="/assets/google-logo.png"
+                alt="Google"
+                className="h-8 w-auto sm:h-8"
+              />
+
+              <img
+                src="/assets/chatgpt-logo.png"
+                alt="ChatGPT"
+                className="h-8 w-auto sm:h-8"
+              />
+
+              <img
+                src="/assets/gemini-logo.png"
+                alt="Gemini"
+                className="h-8 w-auto sm:h-8"
+              />
+
+              <img
+                src="/assets/perplexity-logo.png"
+                alt="Perplexity"
+                className="h-10 sm:h-12 w-auto"
+              />
+
+              <img
+                src="/assets/meta-logo.png"
+                alt="Meta"
+                className="h-12 sm:h-16 w-auto"
+              />
+            </div>
+          </div>
+
           {/* Subheading */}
           <p className="text-slate-300 text-base md:text-lg mb-12 max-w-4xl mx-auto leading-relaxed px-4">
             42% of searches occur in ChatGPT, Perplexity, and Claude—not Google.
