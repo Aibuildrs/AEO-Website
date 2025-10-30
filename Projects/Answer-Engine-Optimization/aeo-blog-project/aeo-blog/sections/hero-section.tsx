@@ -5,9 +5,19 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "84%", label: "Google results with AI" },
-  { value: "3.7B", label: "Monthly ChatGPT visits" },
-  { value: "300%", label: "Perplexity YoY growth" },
+  {
+    value: "84%",
+    label:
+      "Searches Never Leave Google Anymore. They're asking ChatGPT instead",
+  },
+  {
+    value: "3.7B",
+    label: "Billion Questions. Your Competitors are getting cited",
+  },
+  {
+    value: "300%",
+    label: " YoY - Perplexity Traffic Exploded The AI citation gold rush",
+  },
 ];
 
 const Hero: React.FC = () => {
@@ -59,14 +69,14 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-2xl sm:text-6xl md:text-2xl lg:text-7xl mb-8 leading-tight tracking-tight">
-            Get <span className="font-bold">10X</span> More Clicks With
+          <h1 className="text-2xl sm:text-6xl md:text-2xl lg:text-5xl mb-6 leading-tight tracking-tight">
+            Dominate<span className="font-bold"> Search:</span>
             <br />
-            ChatGPT. Dominate AI Search.
+            Get found everywhere your customer is looking
           </h1>
 
           <div className="py-6 flex justify-center">
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-4">
               <img
                 src="/assets/google-logo.png"
                 alt="Google"
@@ -154,7 +164,10 @@ const Hero: React.FC = () => {
                 }}
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ type: "spring", stiffness: 250, damping: 15 }}
-                className="relative text-center bg-slate-900/60 border border-slate-100/50 rounded-3xl p-6 cursor-default backdrop-blur-sm shadow-lg hover:shadow-slate-900/50 transition-shadow"
+                className="relative text-center bg-slate-900/60 border-2 border-slate-600 rounded-3xl p-6 cursor-default backdrop-blur-sm
+                 shadow-[0_8px_20px_rgba(255,255,255,0.08),0_4px_6px_rgba(0,0,0,0.3)]
+                 hover:shadow-[0_12px_25px_rgba(255,255,255,0.1),0_6px_10px_rgba(0,0,0,0.4)]
+                 transition-shadow duration-300"
               >
                 <div className="text-3xl md:text-3xl font-semibold mb-3 text-slate-50">
                   {item.value}
