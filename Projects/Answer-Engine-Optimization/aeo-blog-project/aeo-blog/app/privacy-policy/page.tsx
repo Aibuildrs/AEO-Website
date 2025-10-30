@@ -34,9 +34,10 @@ export default function Page() {
             </div>
           </div>
           <p className="mt-4 text-slate-700">
-            This document governs your use of theaeoengine.com (the "Website")
-            operated by AiBuildrs ("we," "us," or "our"). By accessing or using
-            this Website, you agree to these terms.
+            This document governs your use of theaeoengine.com (the
+            &quot;Website&quot;) operated by AiBuildrs
+            (&quot;we&quot;,&quot;us&quot;, or &quot;our&quot;). By accessing or
+            using this Website, you agree to these terms.
           </p>
         </div>
 
@@ -227,7 +228,7 @@ export default function Page() {
           {/* Section 8 */}
           <div className="mb-8">
             <h3 className="text-xl font-bold text-slate-800 mb-3">
-              8. Children's Privacy
+              8. Children&apos;s Privacy
             </h3>
             <p className="text-slate-700">
               Our Website is not intended for children under 13 years of age. We
@@ -261,7 +262,7 @@ export default function Page() {
             </p>
             <ul className="list-disc pl-6 space-y-1 text-slate-700 mb-3">
               <li>Posting the new Privacy Policy on this page</li>
-              <li>Updating the "Last Updated" date</li>
+              <li>Updating the &quot;Last Updated&quot; date</li>
               <li>Sending you an email notification (for material changes)</li>
             </ul>
             <p className="text-slate-700">
@@ -430,8 +431,8 @@ export default function Page() {
             </h3>
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
               <p className="text-slate-700 mb-3 font-semibold">
-                THE WEBSITE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND,
-                EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+                THE WEBSITE IS PROVIDED &quot;AS IS&quot; WITHOUT WARRANTIES OF
+                ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
               </p>
               <ul className="list-disc pl-6 space-y-1 text-slate-700 mb-3">
                 <li>
@@ -524,8 +525,8 @@ export default function Page() {
             </ul>
             <p className="text-slate-700">
               Material changes to these Terms will be posted on this page with
-              an updated "Last Updated" date. Your continued use after changes
-              constitutes acceptance.
+              an updated &quot;Last Updated&quot; date. Your continued use after
+              changes constitutes acceptance.
             </p>
           </div>
 
@@ -692,7 +693,7 @@ export default function Page() {
                 >
                   team@aibuildrs.com
                 </a>{" "}
-                with "CCPA Request" in the subject line.
+                with &quot;CCPA Request&quot;in the subject line.
               </p>
             </div>
 
@@ -710,7 +711,7 @@ export default function Page() {
                 >
                   team@aibuildrs.com
                 </a>{" "}
-                with "GDPR Request" in the subject line.
+                with &quot;GDPR Request&quot; in the subject line.
               </p>
             </div>
           </div>
