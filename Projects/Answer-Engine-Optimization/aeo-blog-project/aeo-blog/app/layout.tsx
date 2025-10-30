@@ -76,16 +76,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
       </head>
-      <body className="font-[var(--font-body-primary)]">
-     
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="overflow-x-hidden font-[var(--font-body-primary)] bg-slate-100/50 text-black">
+        <div className="overflow-x-hidden w-full max-w-full">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

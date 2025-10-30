@@ -4,6 +4,19 @@
 /* 1️⃣ Import Tailwind first */
 @import "tailwindcss";
 
+/* Fix horizontal scroll issues */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -59,6 +72,8 @@ html {
 /* 🌍 Global Styles */
 body {
   @apply bg-slate-100/50 text-black text-sm antialiased;
+  margin: 0;
+  padding: 0;
 }
 
 /* Headings now use DM Sans */
@@ -118,3 +133,8 @@ button {
   font-family: var(--font-heading-primary);
   font-weight: 600;
 }
+
+/* 
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
