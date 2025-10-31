@@ -1,0 +1,140 @@
+/* 1️⃣ Import Tailwind first */
+@import "tailwindcss";
+
+/* 2️⃣ Local Font Faces */
+
+/* -------- General Sans (Headings) -------- */
+@font-face {
+  font-family: "GeneralSans-Variable";
+  src: url("/fonts/GeneralSans-Variable.woff2") format("woff2"),
+       url("/fonts/GeneralSans-Variable.woff") format("woff"),
+       url("/fonts/GeneralSans-Variable.ttf") format("truetype");
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GeneralSans-Bold";
+  src: url("/fonts/GeneralSans-Bold.woff2") format("woff2"),
+       url("/fonts/GeneralSans-Bold.woff") format("woff"),
+       url("/fonts/GeneralSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* -------- Clash Display (Body) -------- */
+@font-face {
+  font-family: "ClashDisplay-Variable";
+  src: url("/fonts/ClashDisplay-Variable.woff2") format("woff2"),
+       url("/fonts/ClashDisplay-Variable.woff") format("woff"),
+       url("/fonts/ClashDisplay-Variable.ttf") format("truetype");
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* 3️⃣ Fix horizontal scroll issues */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 4️⃣ CSS Variables */
+@theme {
+  /* 🎨 Fonts */
+  --font-heading-primary: "GeneralSans-Variable", sans-serif;
+  --font-heading-alt: "GeneralSans-Bold", sans-serif;
+  --font-body-primary: "ClashDisplay-Variable", sans-serif;
+
+  /* 🌈 Colors */
+  --color-primary: #3b82f6;
+  --color-secondary: #60a5fa;
+  --color-accent: #f59e0b;
+  --color-success: #10b981;
+  --color-lightHover: #fcf4ff;
+  --color-darkHover: #2a004a;
+  --color-darkTheme: #11001f;
+  --color-whiteText: #737373;
+
+  /* 💨 Grid */
+  --grid-cols-auto: repeat(auto-fit, minmax(200px, 1fr));
+
+  /* 🕶️ Shadows */
+  --shadow-black: 4px 4px 0 #000;
+  --shadow-white: 4px 4px 0 #fff;
+}
+
+/* 5️⃣ Global Styles */
+body {
+  @apply bg-slate-100/50 text-black text-sm antialiased;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-primary);
+  margin: 0;
+}
+
+/* Heading Weights */
+h1 {
+  font-weight: 600;
+}
+h2 {
+  font-weight: 700;
+}
+h3 {
+  font-weight: 600;
+}
+h4, h5, h6 {
+  font-weight: 500;
+}
+
+/* Body text */
+p,
+ul,
+li,
+span,
+a {
+  font-family: var(--font-body-primary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00d2f7;
+}
+
+/* Strong */
+strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Buttons */
+button {
+  @apply cursor-pointer;
+  font-family: var(--font-heading-primary);
+  font-weight: 600;
+}
